@@ -1,0 +1,557 @@
+-- Adminer 4.3.1 MySQL dump
+
+SET NAMES utf8;
+SET time_zone = '+00:00';
+SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
+SET NAMES utf8mb4;
+
+DROP TABLE IF EXISTS `answers`;
+CREATE TABLE `answers` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `question_id` int(11) NOT NULL,
+  `value` int(11) NOT NULL DEFAULT '0',
+  `is_special` tinyint(4) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `answers` (`id`, `content`, `question_id`, `value`, `is_special`, `created_at`, `updated_at`) VALUES
+(1,	'Bé nhìn được 5 hình, mỗi hình 1 giây',	1,	5,	0,	'2018-12-02 20:15:24',	'2018-12-02 20:15:24'),
+(2,	'Bé nhìn được 3-4 hình, mỗi hình 1 giây',	1,	4,	0,	'2018-12-02 20:15:24',	'2018-12-02 20:15:24'),
+(3,	'Bé nhìn được 2 hình, mỗi hình một giây',	1,	2,	0,	'2018-12-02 20:15:24',	'2018-12-02 20:15:24'),
+(4,	'Bé nhìn được 1 hình 1 giây',	1,	1,	1,	'2018-12-02 20:15:24',	'2018-12-02 20:15:24'),
+(5,	'Mắt bé chuyển động và chớp theo nhịp lắc',	2,	10,	0,	'2018-12-02 20:16:47',	'2018-12-02 20:16:47'),
+(6,	'Bé chớp mắt',	2,	8,	0,	'2018-12-02 20:16:47',	'2018-12-02 20:16:47'),
+(7,	'Miệng bé chỉ há nhẹ',	2,	6,	0,	'2018-12-02 20:16:47',	'2018-12-02 20:16:47'),
+(8,	'Bé không có biểu hiện gì',	2,	2,	1,	'2018-12-02 20:16:47',	'2018-12-02 20:16:47'),
+(9,	'Mắt bé chuyển động và chớp theo nhịp',	3,	8,	0,	'2018-12-02 20:18:30',	'2018-12-02 20:18:30'),
+(10,	'Bé chớp mắt',	3,	5,	0,	'2018-12-02 20:18:30',	'2018-12-02 20:18:30'),
+(11,	'Bé không chớp mắt',	3,	3,	1,	'2018-12-02 20:18:30',	'2018-12-02 20:18:30'),
+(12,	'Bé có thể nhìn theo hình vòng cung từ bên này sang bên kia có thể quay đầu theo',	4,	12,	0,	'2018-12-02 20:21:52',	'2018-12-02 20:21:52'),
+(13,	'Bé có thể nhìn theo hình vòng cung từ bên cạnh ra phía trước mặt và quay tiếp sang bên đối diện được một chút',	4,	8,	0,	'2018-12-02 20:21:52',	'2018-12-02 20:21:52'),
+(14,	'Bé có thể nhìn theo hình vòng cung từ bên cạnh sang phía thẳng đứng trước mặt chưa quay sang bên đối diện được',	4,	6,	0,	'2018-12-02 20:21:52',	'2018-12-02 20:21:52'),
+(15,	'Bé không nhìn theo',	4,	2,	1,	'2018-12-02 20:21:52',	'2018-12-02 20:21:52'),
+(16,	'15- 20 ngày tuổi',	5,	12,	0,	'2018-12-02 20:26:59',	'2018-12-02 20:26:59'),
+(17,	'20- 25 ngày tuổi',	5,	10,	0,	'2018-12-02 20:26:59',	'2018-12-02 20:26:59'),
+(18,	'25- 30 ngày tuổi',	5,	8,	0,	'2018-12-02 20:26:59',	'2018-12-02 20:26:59'),
+(19,	'Không biết',	5,	4,	1,	'2018-12-02 20:26:59',	'2018-12-02 20:26:59'),
+(20,	'Bé biết ngẩng đầu cao 45 độ, cằm đôi khi chạm xuống giường',	6,	12,	0,	'2018-12-02 20:30:50',	'2018-12-02 20:30:50'),
+(21,	'Đầu bé ngẩng lên được đôi chút, mắt nhìn lên quan sát',	6,	10,	0,	'2018-12-02 20:30:50',	'2018-12-02 20:30:50'),
+(22,	'Bé quay đầu về một phía, má chạm vào gối',	6,	8,	0,	'2018-12-02 20:30:50',	'2018-12-02 20:30:50'),
+(23,	'Đầu bé không thể cử động, úp mặt vào gối, người lớn phải giúp bé chuyển động',	6,	4,	1,	'2018-12-02 20:30:50',	'2018-12-02 20:30:50'),
+(24,	'6 bước',	7,	8,	0,	'2018-12-02 20:34:13',	'2018-12-02 20:34:13'),
+(25,	'4 bước',	7,	6,	0,	'2018-12-02 20:34:13',	'2018-12-02 20:34:13'),
+(26,	'2 bước',	7,	3,	0,	'2018-12-02 20:34:13',	'2018-12-02 20:34:13'),
+(27,	'Không bước đi',	7,	2,	0,	'2018-12-02 20:34:13',	'2018-12-02 20:34:13'),
+(28,	'Đầu, xương hông và toàn thân bé cùng nằm trên một đường thẳng, đầu gối gập cong giống khi đang bơi',	8,	12,	0,	'2018-12-02 20:35:00',	'2018-12-02 20:35:00'),
+(29,	'Đầu và thân bé cùng nằm trên một đường thẳng, chân thả duỗi thẳng xuống phía dưới',	8,	10,	0,	'2018-12-02 20:35:00',	'2018-12-02 20:35:00'),
+(30,	'Đầu và chân bé đều duỗi thẳng xuống phía dưới',	8,	2,	1,	'2018-12-02 20:35:00',	'2018-12-02 20:35:00'),
+(31,	'Hai tay bé chạm vào nhau và có thể đưa tay lên miệng mút',	9,	10,	0,	'2018-12-02 20:37:08',	'2018-12-02 20:37:08'),
+(32,	'Hai tay bé chạm vào nhau',	9,	6,	0,	'2018-12-02 20:37:08',	'2018-12-02 20:37:08'),
+(33,	'Tay bé vung vẩy hai bên',	9,	3,	0,	'2018-12-02 20:37:08',	'2018-12-02 20:37:08'),
+(34,	'Bé duỗi hai tay không cử động',	9,	1,	1,	'2018-12-02 20:37:08',	'2018-12-02 20:37:08'),
+(35,	'Bé nắm chắc trong 10 giây trở lên',	10,	10,	0,	'2018-12-02 20:37:57',	'2018-12-02 20:37:57'),
+(36,	'Bé nắm chắc 5 giây trở lên',	10,	8,	0,	'2018-12-02 20:37:57',	'2018-12-02 20:37:57'),
+(37,	'Bé nắm chắc 3 -5 giây',	10,	5,	0,	'2018-12-02 20:37:57',	'2018-12-02 20:37:57'),
+(38,	'Bé không nắm được vật',	10,	2,	1,	'2018-12-02 20:37:57',	'2018-12-02 20:37:57'),
+(39,	'Bé ngừng khóc, phát ra âm thanh để phản ứng lại 2 lần',	11,	10,	0,	'2018-12-02 20:39:34',	'2018-12-02 20:39:34'),
+(40,	'Bé ngừng khóc, phát ra âm thanh để phản ứng lại 1 lần',	11,	8,	0,	'2018-12-02 20:39:34',	'2018-12-02 20:39:34'),
+(41,	'Bé ngừng khóc và chờ đợi',	11,	7,	0,	'2018-12-02 20:39:34',	'2018-12-02 20:39:34'),
+(42,	'Bé tiếp tục khóc',	11,	2,	1,	'2018-12-02 20:39:34',	'2018-12-02 20:39:34'),
+(43,	'Bé phát âm để trả lời',	12,	12,	0,	'2018-12-02 20:42:09',	'2018-12-02 20:42:09'),
+(44,	'Bé bắt chước người lớn nói chuyện',	12,	10,	0,	'2018-12-02 20:42:09',	'2018-12-02 20:42:09'),
+(45,	'Bé chhăm chú nghe',	12,	8,	0,	'2018-12-02 20:42:09',	'2018-12-02 20:42:09'),
+(46,	'Bé không có biểu hiện gì',	12,	2,	1,	'2018-12-02 20:42:09',	'2018-12-02 20:42:09'),
+(47,	'Trước 5 ngày tuổi',	13,	16,	0,	'2018-12-02 20:43:46',	'2018-12-02 20:43:46'),
+(48,	'Từ 5- 20 ngày tuổi',	13,	12,	0,	'2018-12-02 20:43:46',	'2018-12-02 20:43:46'),
+(49,	'Từ 20 ngày đến khi đầy tháng',	13,	8,	0,	'2018-12-02 20:43:46',	'2018-12-02 20:43:46'),
+(50,	'Chưa biết cười',	13,	4,	1,	'2018-12-02 20:43:46',	'2018-12-02 20:43:46'),
+(51,	'Bé bắt chước 2 động tác trở lên',	14,	8,	0,	'2018-12-02 20:44:59',	'2018-12-02 20:44:59'),
+(52,	'Bé bắt chước được 1 động tác',	14,	6,	0,	'2018-12-02 20:44:59',	'2018-12-02 20:44:59'),
+(53,	'Bé nhìn chằm chằm và không có biểu hiện gì',	14,	4,	0,	'2018-12-02 20:44:59',	'2018-12-02 20:44:59'),
+(54,	'Bé quay mặt đi, bứt rứt khó chịu',	14,	2,	1,	'2018-12-02 20:44:59',	'2018-12-02 20:44:59'),
+(58,	'Không',	15,	0,	0,	'2018-12-02 21:16:38',	'2018-12-02 21:16:38'),
+(59,	'Thỉnh thoảng',	15,	5,	0,	'2018-12-02 21:16:38',	'2018-12-02 21:16:38'),
+(60,	'Luôn luôn',	15,	10,	0,	'2018-12-02 21:16:38',	'2018-12-02 21:16:38'),
+(61,	'Không',	16,	0,	0,	'2018-12-02 21:16:50',	'2018-12-02 21:16:50'),
+(62,	'Thỉnh thoảng',	16,	5,	0,	'2018-12-02 21:16:50',	'2018-12-02 21:16:50'),
+(63,	'Luôn luôn',	16,	10,	0,	'2018-12-02 21:16:50',	'2018-12-02 21:16:50'),
+(64,	'Không',	17,	0,	0,	'2018-12-02 21:17:07',	'2018-12-02 21:17:07'),
+(65,	'Thỉnh thoảng',	17,	5,	0,	'2018-12-02 21:17:07',	'2018-12-02 21:17:07'),
+(66,	'Luôn luôn',	17,	10,	0,	'2018-12-02 21:17:07',	'2018-12-02 21:17:07'),
+(67,	'Không',	18,	0,	0,	'2018-12-02 21:17:22',	'2018-12-02 21:17:22'),
+(68,	'Thỉnh thoảng',	18,	5,	0,	'2018-12-02 21:17:22',	'2018-12-02 21:17:22'),
+(69,	'Luôn luôn',	18,	10,	0,	'2018-12-02 21:17:22',	'2018-12-02 21:17:22'),
+(70,	'Không',	19,	0,	0,	'2018-12-02 21:17:34',	'2018-12-02 21:17:34'),
+(71,	'Thỉnh thoảng',	19,	5,	0,	'2018-12-02 21:17:34',	'2018-12-02 21:17:34'),
+(72,	'Luôn luôn',	19,	10,	0,	'2018-12-02 21:17:34',	'2018-12-02 21:17:34'),
+(73,	'Không',	20,	0,	0,	'2018-12-02 21:18:01',	'2018-12-02 21:18:01'),
+(74,	'Thỉnh thoảng',	20,	5,	0,	'2018-12-02 21:18:01',	'2018-12-02 21:18:01'),
+(75,	'Luôn luôn',	20,	10,	0,	'2018-12-02 21:18:01',	'2018-12-02 21:18:01'),
+(76,	'Không',	21,	0,	0,	'2018-12-02 21:18:46',	'2018-12-02 21:18:46'),
+(77,	'Thỉnh thoảng',	21,	5,	0,	'2018-12-02 21:18:46',	'2018-12-02 21:18:46'),
+(78,	'Luôn luôn',	21,	10,	0,	'2018-12-02 21:18:46',	'2018-12-02 21:18:46'),
+(79,	'Không',	22,	0,	0,	'2018-12-02 21:19:02',	'2018-12-02 21:19:02'),
+(80,	'Thỉnh thoảng',	22,	5,	0,	'2018-12-02 21:19:02',	'2018-12-02 21:19:02'),
+(81,	'Luôn luôn',	22,	10,	0,	'2018-12-02 21:19:02',	'2018-12-02 21:19:02'),
+(82,	'Không',	23,	0,	0,	'2018-12-02 21:19:16',	'2018-12-02 21:19:16'),
+(83,	'Thỉnh thoảng',	23,	5,	0,	'2018-12-02 21:19:16',	'2018-12-02 21:19:16'),
+(84,	'Luôn luôn',	23,	10,	0,	'2018-12-02 21:19:16',	'2018-12-02 21:19:16'),
+(85,	'Không',	24,	0,	0,	'2018-12-02 21:19:30',	'2018-12-02 21:19:30'),
+(86,	'Thỉnh thoảng',	24,	5,	0,	'2018-12-02 21:19:30',	'2018-12-02 21:19:30'),
+(87,	'Luôn luôn',	24,	10,	0,	'2018-12-02 21:19:30',	'2018-12-02 21:19:30'),
+(88,	'Không',	25,	0,	0,	'2018-12-02 21:19:41',	'2018-12-02 21:19:41'),
+(89,	'Thỉnh thoảng',	25,	5,	0,	'2018-12-02 21:19:41',	'2018-12-02 21:19:41'),
+(90,	'Luôn luôn',	25,	10,	0,	'2018-12-02 21:19:41',	'2018-12-02 21:19:41'),
+(91,	'Không',	26,	0,	0,	'2018-12-02 21:19:55',	'2018-12-02 21:19:55'),
+(92,	'Thỉnh thoảng',	26,	5,	0,	'2018-12-02 21:19:55',	'2018-12-02 21:19:55'),
+(93,	'Luôn luôn',	26,	10,	0,	'2018-12-02 21:19:55',	'2018-12-02 21:19:55'),
+(94,	'Không',	27,	0,	0,	'2018-12-02 21:20:18',	'2018-12-02 21:20:18'),
+(95,	'Thỉnh thoảng',	27,	5,	0,	'2018-12-02 21:20:18',	'2018-12-02 21:20:18'),
+(96,	'Luôn luôn',	27,	10,	0,	'2018-12-02 21:20:18',	'2018-12-02 21:20:18'),
+(97,	'Không',	28,	0,	0,	'2018-12-02 21:20:48',	'2018-12-02 21:20:48'),
+(98,	'Thỉnh thoảng',	28,	5,	0,	'2018-12-02 21:20:48',	'2018-12-02 21:20:48'),
+(99,	'Luôn luôn',	28,	10,	0,	'2018-12-02 21:20:48',	'2018-12-02 21:20:48'),
+(100,	'Không',	29,	0,	0,	'2018-12-02 21:21:03',	'2018-12-02 21:21:03'),
+(101,	'Thỉnh thoảng',	29,	5,	0,	'2018-12-02 21:21:03',	'2018-12-02 21:21:03'),
+(102,	'Luôn luôn',	29,	10,	0,	'2018-12-02 21:21:03',	'2018-12-02 21:21:03'),
+(103,	'Không',	30,	0,	0,	'2018-12-02 21:21:24',	'2018-12-02 21:21:24'),
+(104,	'Thỉnh thoảng',	30,	5,	0,	'2018-12-02 21:21:24',	'2018-12-02 21:21:24'),
+(105,	'Luôn luôn',	30,	10,	0,	'2018-12-02 21:21:24',	'2018-12-02 21:21:24'),
+(106,	'Không',	31,	0,	0,	'2018-12-02 21:22:34',	'2018-12-02 21:22:34'),
+(107,	'Thỉnh thoảng',	31,	5,	0,	'2018-12-02 21:22:34',	'2018-12-02 21:22:34'),
+(108,	'Có',	31,	10,	0,	'2018-12-02 21:22:34',	'2018-12-02 21:22:34'),
+(109,	'Không',	32,	0,	0,	'2018-12-02 21:22:50',	'2018-12-02 21:22:50'),
+(110,	'Thỉnh thoảng',	32,	5,	0,	'2018-12-02 21:22:50',	'2018-12-02 21:22:50'),
+(111,	'Có',	32,	10,	0,	'2018-12-02 21:22:50',	'2018-12-02 21:22:50'),
+(112,	'Không',	33,	0,	0,	'2018-12-02 21:23:17',	'2018-12-02 21:23:17'),
+(113,	'Thỉnh thoảng',	33,	5,	0,	'2018-12-02 21:23:17',	'2018-12-02 21:23:17'),
+(114,	'Có',	33,	10,	0,	'2018-12-02 21:23:17',	'2018-12-02 21:23:17'),
+(115,	'Không',	34,	0,	0,	'2018-12-02 21:24:46',	'2018-12-02 21:24:46'),
+(116,	'Thỉnh thoảng',	34,	5,	0,	'2018-12-02 21:24:46',	'2018-12-02 21:24:46'),
+(117,	'Có',	34,	10,	0,	'2018-12-02 21:24:46',	'2018-12-02 21:24:46'),
+(118,	'Không',	35,	0,	0,	'2018-12-02 21:24:58',	'2018-12-02 21:24:58'),
+(119,	'Thỉnh thoảng',	35,	5,	0,	'2018-12-02 21:24:58',	'2018-12-02 21:24:58'),
+(120,	'Có',	35,	10,	0,	'2018-12-02 21:24:58',	'2018-12-02 21:24:58'),
+(121,	'Không',	36,	0,	0,	'2018-12-02 21:25:11',	'2018-12-02 21:25:11'),
+(122,	'Thỉnh thoảng',	36,	5,	0,	'2018-12-02 21:25:11',	'2018-12-02 21:25:11'),
+(123,	'Có',	36,	10,	0,	'2018-12-02 21:25:11',	'2018-12-02 21:25:11'),
+(124,	'Không',	37,	0,	0,	'2018-12-02 21:25:36',	'2018-12-02 21:25:36'),
+(125,	'Thỉnh thoảng',	37,	5,	0,	'2018-12-02 21:25:36',	'2018-12-02 21:25:36'),
+(126,	'Có',	37,	10,	0,	'2018-12-02 21:25:36',	'2018-12-02 21:25:36'),
+(127,	'Không',	38,	0,	0,	'2018-12-02 21:25:50',	'2018-12-02 21:25:50'),
+(128,	'Thỉnh thoảng',	38,	5,	0,	'2018-12-02 21:25:50',	'2018-12-02 21:25:50'),
+(129,	'Có',	38,	10,	0,	'2018-12-02 21:25:50',	'2018-12-02 21:25:50'),
+(130,	'Không',	39,	0,	0,	'2018-12-02 21:27:22',	'2018-12-02 21:27:22'),
+(131,	'Thỉnh thoảng',	39,	5,	0,	'2018-12-02 21:27:22',	'2018-12-02 21:27:22'),
+(132,	'Có',	39,	10,	0,	'2018-12-02 21:27:22',	'2018-12-02 21:27:22'),
+(133,	'Không',	40,	0,	0,	'2018-12-02 21:27:34',	'2018-12-02 21:27:34'),
+(134,	'Thỉnh thoảng',	40,	5,	0,	'2018-12-02 21:27:34',	'2018-12-02 21:27:34'),
+(135,	'Có',	40,	10,	0,	'2018-12-02 21:27:34',	'2018-12-02 21:27:34'),
+(136,	'Không',	41,	0,	0,	'2018-12-02 21:28:09',	'2018-12-02 21:28:09'),
+(137,	'Thỉnh thoảng',	41,	5,	0,	'2018-12-02 21:28:09',	'2018-12-02 21:28:09'),
+(138,	'Có',	41,	10,	0,	'2018-12-02 21:28:09',	'2018-12-02 21:28:09'),
+(139,	'Không',	42,	0,	0,	'2018-12-02 21:28:25',	'2018-12-02 21:28:25'),
+(140,	'Thỉnh thoảng',	42,	5,	0,	'2018-12-02 21:28:25',	'2018-12-02 21:28:25'),
+(141,	'Có',	42,	10,	0,	'2018-12-02 21:28:25',	'2018-12-02 21:28:25'),
+(142,	'Không',	43,	0,	0,	'2018-12-02 21:28:36',	'2018-12-02 21:28:36'),
+(143,	'Thỉnh thoảng',	43,	5,	0,	'2018-12-02 21:28:36',	'2018-12-02 21:28:36'),
+(144,	'Có',	43,	10,	0,	'2018-12-02 21:28:36',	'2018-12-02 21:28:36'),
+(145,	'Không',	44,	0,	0,	'2018-12-02 21:28:47',	'2018-12-02 21:28:47'),
+(146,	'Thỉnh thoảng',	44,	5,	0,	'2018-12-02 21:28:47',	'2018-12-02 21:28:47'),
+(147,	'Có',	44,	10,	0,	'2018-12-02 21:28:47',	'2018-12-02 21:28:47');
+
+DROP TABLE IF EXISTS `answer_sheets`;
+CREATE TABLE `answer_sheets` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `test_result_id` int(10) NOT NULL,
+  `question_id` int(10) NOT NULL,
+  `answer_id` int(10) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+DROP TABLE IF EXISTS `chart_data`;
+CREATE TABLE `chart_data` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `level_id` int(11) NOT NULL,
+  `part_id` int(11) NOT NULL,
+  `max_value` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `chart_data` (`id`, `level_id`, `part_id`, `max_value`, `created_at`, `updated_at`) VALUES
+(1,	2,	4,	47,	'2018-12-02 20:05:45',	'2018-12-02 20:05:45'),
+(2,	2,	2,	32,	'2018-12-02 20:28:20',	'2018-12-02 20:28:20'),
+(3,	2,	3,	20,	'2018-12-02 20:36:01',	'2018-12-02 20:36:01'),
+(4,	2,	1,	22,	'2018-12-02 20:38:46',	'2018-12-02 20:38:46'),
+(5,	2,	5,	24,	'2018-12-02 20:42:33',	'2018-12-02 20:42:33'),
+(6,	1,	1,	60,	'2018-12-02 21:06:01',	'2018-12-02 21:06:01'),
+(7,	1,	2,	60,	'2018-12-02 21:18:27',	'2018-12-02 21:18:27'),
+(8,	1,	3,	60,	'2018-12-02 21:20:10',	'2018-12-02 21:20:10'),
+(9,	1,	4,	60,	'2018-12-02 21:23:10',	'2018-12-02 21:23:10'),
+(10,	1,	5,	60,	'2018-12-02 21:27:13',	'2018-12-02 21:27:13');
+
+DROP TABLE IF EXISTS `kids`;
+CREATE TABLE `kids` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` char(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `avatar_link` char(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gender` tinyint(1) NOT NULL DEFAULT '1',
+  `user_id` int(11) NOT NULL,
+  `birth_day` datetime NOT NULL,
+  `last_time_test` datetime DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `kids` (`id`, `name`, `avatar_link`, `gender`, `user_id`, `birth_day`, `last_time_test`, `created_at`, `updated_at`) VALUES
+(1,	'Trần Thuỳ Linh B',	'/images/kids/1542645163.JPG',	0,	4,	'2018-10-09 00:00:00',	'2018-10-09 00:00:00',	'2018-11-29 12:14:22',	'2018-11-29 12:14:22'),
+(26,	'QAH',	NULL,	1,	4,	'2018-09-01 00:00:00',	NULL,	'2018-11-19 10:24:15',	'2018-11-19 10:24:15');
+
+DROP TABLE IF EXISTS `levels`;
+CREATE TABLE `levels` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `from` int(11) NOT NULL,
+  `to` int(11) NOT NULL,
+  `is_basic` tinyint(1) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `levels` (`id`, `from`, `to`, `is_basic`, `created_at`, `updated_at`) VALUES
+(1,	0,	1,	1,	'2018-12-02 20:04:59',	'2018-12-02 20:04:59'),
+(2,	0,	1,	0,	'2018-12-02 20:05:13',	'2018-12-02 20:05:13');
+
+DROP TABLE IF EXISTS `migrations`;
+CREATE TABLE `migrations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(34,	'2018_10_03_072159_create_table_test_categories_table',	1),
+(35,	'2018_10_03_072519_create_table_test_months_table',	1),
+(44,	'2018_10_02_164608_create_table_tests_table',	2),
+(46,	'2018_10_03_070558_create_table_test_answers_table',	2),
+(76,	'2014_10_12_000000_create_users_table',	3),
+(77,	'2014_10_12_100000_create_password_resets_table',	3),
+(78,	'2016_06_01_000001_create_oauth_auth_codes_table',	3),
+(79,	'2016_06_01_000002_create_oauth_access_tokens_table',	3),
+(80,	'2016_06_01_000003_create_oauth_refresh_tokens_table',	3),
+(81,	'2016_06_01_000004_create_oauth_clients_table',	3),
+(82,	'2016_06_01_000005_create_oauth_personal_access_clients_table',	3),
+(83,	'2018_10_02_163506_create_table_kids_table',	3),
+(84,	'2018_10_02_164608_create_table_questions_table',	3),
+(85,	'2018_10_03_070005_create_table_answers_table',	3),
+(86,	'2018_10_03_070558_create_table_test_results_table',	3),
+(87,	'2018_10_03_071159_create_table_test_evaluates_table',	3),
+(88,	'2018_10_03_072159_create_table_parts_table',	3),
+(89,	'2018_10_03_072519_create_table_levels_table',	3);
+
+DROP TABLE IF EXISTS `oauth_access_tokens`;
+CREATE TABLE `oauth_access_tokens` (
+  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `client_id` int(11) NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `scopes` text COLLATE utf8mb4_unicode_ci,
+  `revoked` tinyint(1) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `expires_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `oauth_access_tokens_user_id_index` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
+('002c72d7f573f05c3b79cf0cb4e9f87b2100a40020ce483b376b9cb96dd991d4b5ad4cc1cbd79af2',	4,	3,	'User Token',	'[\"client\"]',	0,	'2018-11-15 18:59:32',	'2018-11-15 18:59:32',	'2019-11-16 08:59:32'),
+('00df7c28eb4ebfddcb2ec0650aebb4a9cc4e2b39730134940c5f2d1e3274404db3e4b3332724e9ba',	4,	3,	'User Token',	'[\"client\"]',	0,	'2018-10-14 03:42:52',	'2018-10-14 03:42:52',	'2019-10-14 17:42:52'),
+('077ee9043959b5ffe7dcea6b5efdc42e8960ae19e840f484c3a599dee68f2d6acc498a9c956f85b0',	1,	3,	'User Token',	'[\"admin\"]',	0,	'2018-10-14 00:31:51',	'2018-10-14 00:31:51',	'2019-10-14 14:31:51'),
+('0bc459b863c5b194100ee6217d05a2174582072c346fb78ade0d901094432a950c107c1d079524fe',	4,	3,	'User Token',	'[\"client\"]',	0,	'2018-11-18 13:14:19',	'2018-11-18 13:14:19',	'2019-11-19 03:14:19'),
+('1690edf64a6b2eca3065f5a56202b772ffde40ed04025c160ac1b76cf04936f953d5c7e3f75ce354',	1,	3,	'User Token',	'[\"admin\"]',	0,	'2018-10-16 03:37:32',	'2018-10-16 03:37:32',	'2019-10-16 17:37:32'),
+('16ceccaa8a707b233eb7d0f0a048ce2e26b44176e22e9a05acd2cc31d428f1c03b8b7887eb7e3086',	1,	3,	'User Token',	'[\"admin\"]',	0,	'2018-10-14 01:59:07',	'2018-10-14 01:59:07',	'2019-10-14 15:59:07'),
+('1ff8b4b5dcd49d2c9878de85fde6fe9ebbb842f3329d2dc84b223757c84cbba7a04f1029d84a7036',	4,	3,	'User Token',	'[\"client\"]',	0,	'2018-11-18 13:14:19',	'2018-11-18 13:14:19',	'2019-11-19 03:14:19'),
+('205915819ea5e9b4fc45718e229879889888f1d772f115a1a20aac3a457537e477a10c4fa92cba9c',	1,	3,	'User Token',	'[\"admin\"]',	0,	'2018-10-14 03:37:58',	'2018-10-14 03:37:58',	'2019-10-14 17:37:58'),
+('24c432a2694b316b5cc67487f371198e50bae639b2a6060198d2c4ad294964fdb503399f0ead61be',	1,	3,	'User Token',	'[\"admin\"]',	0,	'2018-11-14 00:26:39',	'2018-11-14 00:26:39',	'2019-11-14 14:26:39'),
+('27b89b7cbf226d753645f62be84a95801a68b8366fb357665d81e8513a66b0956b76512a84fdc8b5',	1,	3,	'User Token',	'[\"admin\"]',	0,	'2018-11-22 23:04:36',	'2018-11-22 23:04:36',	'2019-11-23 06:04:36'),
+('3d3a7fe4f72a4560ae637dcd6038d02cdcf4616b2e36f29f39fe42875b0ddc31bc835f8d4fad3297',	1,	3,	'User Token',	'[\"admin\"]',	0,	'2018-11-08 22:14:25',	'2018-11-08 22:14:25',	'2019-11-09 12:14:25'),
+('3db133e803272676c17c22f49be00730b30a70b997283b60e66a697f151bc229f9d82ab1bb5517f7',	1,	3,	'User Token',	'[\"admin\"]',	0,	'2018-10-14 03:43:46',	'2018-10-14 03:43:46',	'2019-10-14 17:43:46'),
+('44e7b554eeb7af934baa39a4037e8a3718104fe622c4b2fdc4c9fbdb68b07c10f2ab2b53c08bc69e',	1,	3,	'User Token',	'[\"get-basic-test\"]',	0,	'2018-10-06 20:47:18',	'2018-10-06 20:47:18',	'2019-10-07 10:47:18'),
+('4ac9aeb7c3276923ff1ec5acdef3aaeff66f9e0b45e23b39e15fba7472852d6d06bbec446d0f84eb',	1,	3,	'User Token',	'[\"admin\"]',	0,	'2018-10-14 00:29:55',	'2018-10-14 00:29:55',	'2019-10-14 14:29:55'),
+('51ba811ee8113dd18474d60e03cbd0293cc4f171a784fff758ea00ea713753921b49e7198d71fb5e',	1,	3,	'User Token',	'[\"get-basic-test\"]',	0,	'2018-10-06 20:50:28',	'2018-10-06 20:50:28',	'2019-10-07 10:50:28'),
+('659b8d4eb4d65e7f0e10fe2c645974c7325dce2cbecda60f6ffde44bbdfaa23fe2ff7db26ebc0adb',	1,	3,	'User Token',	'[\"admin\"]',	0,	'2018-11-15 18:58:26',	'2018-11-15 18:58:26',	'2019-11-16 08:58:26'),
+('72b2cab1fcd93d021406220964d62c323fdbc41655cdf84aafde27701114bb5ba9b5b7e975eaaf8a',	1,	3,	'User Token',	'[\"admin\"]',	0,	'2018-10-14 02:12:37',	'2018-10-14 02:12:37',	'2019-10-14 16:12:37'),
+('730887e3dfaa6ef7be9b74835c603f0cfe2e58dc28b2491a102c2c57cfe8b2d5b8d4d58a0519b8e3',	4,	3,	'User Token',	'[\"client\"]',	0,	'2018-11-15 19:02:00',	'2018-11-15 19:02:00',	'2019-11-16 09:02:00'),
+('7864dbf5979ea132967187f0be501f17d2c18cd324580e2b8cd0e84e0eeb607c7cfbd11329248862',	1,	3,	'User Token',	'[\"admin\"]',	0,	'2018-10-14 00:28:49',	'2018-10-14 00:28:49',	'2019-10-14 14:28:49'),
+('7bf970423a241f2f4b077fb234f0c3fdea3eb21231f037b7036f96b5815dffea70934428d0a7735c',	1,	3,	'User Token',	'[\"admin\"]',	0,	'2018-11-22 21:28:35',	'2018-11-22 21:28:35',	'2019-11-23 04:28:35'),
+('8e3707f052bd2d59c1c0a1f15462a03b3a42be28a19f57eb6ca6c22432d04322f258945a5ff1ed8d',	1,	3,	'User Token',	'[\"admin\"]',	0,	'2018-10-14 01:23:15',	'2018-10-14 01:23:15',	'2019-10-14 15:23:15'),
+('91b8f9c8c9f38b1d9dc83a1fca22190554b5456251fd747fe4236aa2fff0cbaced6106775f61d5be',	1,	3,	'User Token',	'[\"admin\"]',	0,	'2018-10-14 01:58:46',	'2018-10-14 01:58:46',	'2019-10-14 15:58:46'),
+('93a0f845e7e1b4666732e8189498fc5f471618c64e5a326f79d70f87f6f9b07f4c2a54f62c6498dd',	1,	3,	'User Token',	'[\"get-basic-test\"]',	0,	'2018-10-06 21:04:31',	'2018-10-06 21:04:31',	'2019-10-07 11:04:31'),
+('a469eca58870d0fd3dadabc572f61f201297911b10399dd5303b1c9dc5c7a31909f4ab3a68af5a46',	1,	3,	'User Token',	'[\"admin\"]',	0,	'2018-10-14 00:30:37',	'2018-10-14 00:30:37',	'2019-10-14 14:30:37'),
+('b1166d7b24d9416dd06ac48d88fd65096a3a9fed975ab2ad87503c4ed015b2cdc9c51a2ac6d2c52c',	1,	3,	'User Token',	'[\"get-basic-test\"]',	0,	'2018-10-06 20:46:40',	'2018-10-06 20:46:40',	'2019-10-07 10:46:40'),
+('c6d56fb17c8e134b2d6f67a7182df800b54077a7427a9ee40a056d5a184942b29c7f6c160d5573ad',	1,	3,	'User Token',	'[\"admin\"]',	0,	'2018-10-16 03:39:06',	'2018-10-16 03:39:06',	'2019-10-16 17:39:06'),
+('ca1a068c9158b03959df6e4e6c215d0784153c3600ec8c9fa5ddbd554c783d6dd6b0f237458f83ce',	1,	3,	'User Token',	'[\"get-basic-test\"]',	0,	'2018-10-06 21:09:45',	'2018-10-06 21:09:45',	'2019-10-07 11:09:45'),
+('cbf9074c7a69ee5a85af4c344aa83c7d1ed826b0a58134debe6c7e3fa6b8532abb83fe66c1c2da85',	1,	3,	'User Token',	'[\"admin\"]',	0,	'2018-11-15 18:58:13',	'2018-11-15 18:58:13',	'2019-11-16 08:58:13'),
+('d035913b87d044924ec845eddc51214d941fa7676cc7f893ab6c29d4f7c8c75126d0d609b669a64b',	1,	3,	'User Token',	'[\"get-basic-test\"]',	0,	'2018-10-06 20:46:04',	'2018-10-06 20:46:04',	'2019-10-07 10:46:04'),
+('d979826a2ffa1ac10b492126194a9c77a23d68e61beeea308e23dcb880fc5e2a71a02ce3c2e8c322',	1,	3,	'User Token',	'[\"admin\"]',	0,	'2018-10-14 01:58:45',	'2018-10-14 01:58:45',	'2019-10-14 15:58:45'),
+('dafe5291a1c7cca90cf4159efdbba4259b5223547ec6c0a913e21cb7ac3f827e2ecc1458351fb020',	1,	3,	'User Token',	'[\"admin\"]',	0,	'2018-11-05 02:21:30',	'2018-11-05 02:21:30',	'2019-11-05 16:21:30'),
+('e3c06e8998f3943ca0c08bb0838df2eb6a1b020602c1343f4938a262da0ccd29ef7640adfd06b712',	1,	3,	'User Token',	'[\"admin\"]',	0,	'2018-10-31 19:18:53',	'2018-10-31 19:18:53',	'2019-11-01 09:18:53'),
+('e968c10a8f8471719caa0ab04b62c8bea830ae1e96c566fd9a8d6cfea393c63ea96e338bb7c2d594',	4,	3,	'User Token',	'[\"client\"]',	0,	'2018-11-29 05:27:02',	'2018-11-29 05:27:02',	'2019-11-29 12:27:02'),
+('ebd0ce2733109714e0f621c89ddf5947c33e7df157c1c82a441ecc609f809a3802833c7675d6fb08',	4,	3,	'User Token',	'[\"client\"]',	0,	'2018-11-18 13:14:19',	'2018-11-18 13:14:19',	'2019-11-19 03:14:19'),
+('f24f730b72901c0c64fa240b28c7595872a0c12882c856d41108d39ca3c7e3676b39b192cb9ec214',	4,	3,	'User Token',	'[\"client\"]',	0,	'2018-11-14 19:55:26',	'2018-11-14 19:55:26',	'2019-11-15 09:55:26'),
+('f2ddaefc3541331f41f046ebbc96225cfd566bbea2e53d2ee46ab67ecc684afdc59c9bb412bc1635',	4,	3,	'User Token',	'[\"client\"]',	0,	'2018-11-29 05:11:52',	'2018-11-29 05:11:52',	'2019-11-29 12:11:52'),
+('f4b953eecbea2fbb734c349a61f7fdf2ea754e08357b42569fc9dcdf2244e149a3ddb82cf24e9197',	4,	3,	'User Token',	'[\"client\"]',	0,	'2018-10-31 19:19:29',	'2018-10-31 19:19:29',	'2019-11-01 09:19:29'),
+('fd4ca3ea74798c4d2b8311fb9ae3b3a21f9d288aca95b74599ea1411082ac2da261f8335863a3f8e',	1,	3,	'User Token',	'[\"admin\"]',	0,	'2018-10-14 00:28:22',	'2018-10-14 00:28:22',	'2019-10-14 14:28:22');
+
+DROP TABLE IF EXISTS `oauth_auth_codes`;
+CREATE TABLE `oauth_auth_codes` (
+  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `client_id` int(11) NOT NULL,
+  `scopes` text COLLATE utf8mb4_unicode_ci,
+  `revoked` tinyint(1) NOT NULL,
+  `expires_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+DROP TABLE IF EXISTS `oauth_clients`;
+CREATE TABLE `oauth_clients` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `secret` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `redirect` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `personal_access_client` tinyint(1) NOT NULL,
+  `password_client` tinyint(1) NOT NULL,
+  `revoked` tinyint(1) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `oauth_clients_user_id_index` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `oauth_clients` (`id`, `user_id`, `name`, `secret`, `redirect`, `personal_access_client`, `password_client`, `revoked`, `created_at`, `updated_at`) VALUES
+(1,	NULL,	'Laravel Personal Access Client',	'Y5x448mLtXfyTbigmsmAUj2oK6YEl4UJ9JNpcM68',	'http://localhost',	1,	0,	0,	'2018-10-06 20:44:44',	'2018-10-06 20:44:44'),
+(2,	NULL,	'Laravel Password Grant Client',	'W5HogHzBH2fIN8Hy5arKoCQeM9vuEJfWDtd03p2P',	'http://localhost',	0,	1,	0,	'2018-10-06 20:44:44',	'2018-10-06 20:44:44'),
+(3,	NULL,	'Laravel Personal Access Client',	'MlsdSgrgivBEuj4mB7xbHB2fLUhTcrMNXqBprIij',	'http://localhost',	1,	0,	0,	'2018-10-06 20:45:16',	'2018-10-06 20:45:16'),
+(4,	NULL,	'Laravel Password Grant Client',	'g8RVIWeCuvFDLZIv7Top7Y4km9eAxTkUCSBj1Zm1',	'http://localhost',	0,	1,	0,	'2018-10-06 20:45:16',	'2018-10-06 20:45:16');
+
+DROP TABLE IF EXISTS `oauth_personal_access_clients`;
+CREATE TABLE `oauth_personal_access_clients` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `client_id` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `oauth_personal_access_clients_client_id_index` (`client_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `oauth_personal_access_clients` (`id`, `client_id`, `created_at`, `updated_at`) VALUES
+(1,	1,	'2018-10-06 20:44:44',	'2018-10-06 20:44:44'),
+(2,	3,	'2018-10-06 20:45:16',	'2018-10-06 20:45:16');
+
+DROP TABLE IF EXISTS `oauth_refresh_tokens`;
+CREATE TABLE `oauth_refresh_tokens` (
+  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `access_token_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `revoked` tinyint(1) NOT NULL,
+  `expires_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `oauth_refresh_tokens_access_token_id_index` (`access_token_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+DROP TABLE IF EXISTS `parts`;
+CREATE TABLE `parts` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alias` mediumtext COLLATE utf8mb4_unicode_ci,
+  `max_score` int(11) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `parts` (`id`, `name`, `content`, `alias`, `max_score`, `created_at`, `updated_at`, `image`) VALUES
+(1,	'Ngôn ngữ và giao tiếp',	'Lorem Ipsum is simply dummy text of the printing and typesetting industry...',	'nngt',	60,	'2018-11-17 04:15:50',	'2018-11-16 21:15:50',	'/images/part/1542453344.png'),
+(2,	'Vận động thô',	'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',	'vđt',	60,	'2018-11-17 04:13:52',	'2018-11-16 21:13:52',	'/images/part/1542453232.png'),
+(3,	'Vận động tinh',	'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',	'vđt',	60,	'2018-11-17 04:14:00',	'2018-11-16 21:14:00',	'/images/part/1542453240.png'),
+(4,	'Nhận thức',	'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',	'nt',	60,	'2018-11-17 04:14:07',	'2018-11-16 21:14:07',	'/images/part/1542453247.png'),
+(5,	'Tình cảm xã hội',	'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',	'tcxh',	60,	'2018-11-17 04:14:14',	'2018-11-16 21:14:14',	'/images/part/1542453254.png');
+
+DROP TABLE IF EXISTS `password_resets`;
+CREATE TABLE `password_resets` (
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  KEY `password_resets_email_index` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+DROP TABLE IF EXISTS `questions`;
+CREATE TABLE `questions` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `image_link` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `position` int(11) NOT NULL,
+  `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `special_comment` longtext COLLATE utf8mb4_unicode_ci,
+  `action_link` longtext COLLATE utf8mb4_unicode_ci,
+  `part_id` int(11) NOT NULL,
+  `level_id` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `questions` (`id`, `image_link`, `position`, `content`, `special_comment`, `action_link`, `part_id`, `level_id`, `created_at`, `updated_at`) VALUES
+(1,	NULL,	0,	'Lần đầu cho bé tập trung nhìn các bức tranh đen trắng cách mắt 20cm: 1. Hình vuông; 2. Hình tròn; 3. Hình tam giác; 4. Hình chấm tròn; 5. Hình ô caro',	'Thị giác của bé có thể chưa phát triển tốt. Bạn nên  tập  thêm cho bé các bài luyện thị giác như  \"Nhìn hình trắng đen\", \"Nhìn theo đèn pin\"',	'<p>Thị giác của bé có thể chưa phát triển tốt. Bạn nên&nbsp;tập&nbsp;thêm cho bé các bài luyện thị giác như&nbsp;\"Nhìn hình trắng đen\", \"Nhìn theo đèn pin\"</p>',	4,	2,	'2018-12-02 20:15:24',	'2018-12-02 20:15:24'),
+(2,	NULL,	0,	'Bạn lắc xúc xắc cách tai bé 15cm',	'Bé không có biểu hiện gì khi người lớn lắc xúc xắc gần tai bé. Cần thử lại hoạt động vào một vài lần khác và theo dõi thêm. Nếu tình trạng tiếp diễn, nên hỏi tư vấn của bác sỹ chuyên khoa  về thính lực của bé',	'<p>Bé không có biểu hiện gì khi người lớn lắc xúc xắc gần tai bé. Cần thử lại hoạt động vào một vài lần khác và theo dõi thêm. Nếu tình trạng tiếp diễn, nên hỏi tư vấn của bác sỹ chuyên khoa&nbsp;về thính lực của bé&nbsp;</p>',	4,	2,	'2018-12-02 20:16:47',	'2018-12-02 20:16:47'),
+(3,	NULL,	0,	'Người lớn vẫy tay nhanh từ xa tới gần trước mắt bé',	'Bé có vẻ không có phản xạ chớp mắt khi người lớn vẫy tay nhanh từ xa đến gần trước mắt bé. Nên theo dõi thêm và tư vấn bác sỹ  về khả năng thị lực của bé. Tập thêm cho bé bài tập \"Nhìn theo đèn pin\" và \"Nhìn theo đồ vật\"',	'<p>Bé có vẻ không có phản xạ chớp mắt khi người lớn vẫy tay nhanh từ xa đến gần trước mắt bé. Nên theo dõi thêm và tư vấn bác sỹ&nbsp;về khả năng thị lực của bé. Tập thêm cho bé bài tập \"Nhìn theo đèn pin\" và \"Nhìn theo đồ vật\"&nbsp;&nbsp;</p>',	4,	2,	'2018-12-02 20:18:30',	'2018-12-02 20:18:30'),
+(4,	NULL,	0,	'Cho bé nhìn theo vật chuyển động cách mắt 15cm',	'Bé chưa nhìn theo đồ vật chuyển động. Cần luyện tập thêm cho bé các bài tập: \"Nhìn theo đèn pin\", \"Nhìn theo đồ vật\".',	'<p>Bé chưa nhìn theo đồ vật chuyển động. Cần luyện tập thêm cho bé các bài tập: \"Nhìn theo đèn pin\", \"Nhìn theo đồ vật\".</p>',	4,	2,	'2018-12-02 20:21:52',	'2018-12-02 20:21:52'),
+(5,	NULL,	0,	'Sau 2 tuần tuổi, dùng âm thanh, tư thế và bô, bé biết nghe tiếng xi để đi tiểu tiện và đại tiện khi',	'Cần cung cấp cơ hội cho bé được xi bô từ sớm. Bé sẽ nhanh chóng có phản xạ xi bô. Cho bé thực hiện thêm bài \"Tập cho bé đi bô\"',	'<p>Cần cung cấp cơ hội cho bé được xi bô từ sớm. Bé sẽ nhanh chóng có phản xạ xi bô. Cho bé thực hiện thêm bài \"Tập cho bé đi bô\"&nbsp;&nbsp;&nbsp;</p>',	4,	2,	'2018-12-02 20:26:59',	'2018-12-02 20:26:59'),
+(6,	NULL,	0,	'Sau 10 ngày, khi để bé nằm sấp',	'Cho bé cơ hội nằm úp nhiều và tư vấn thêm bác sỹ chuyên khoa nếu bé vẫn tiếp tục úp mặt xuống gối và không thể ngẩng đầu lên. Tập cho bé thêm bài \"Nằm sấp ngẩng đầu\"',	'<p>Cho bé cơ hội nằm úp nhiều và tư vấn thêm bác sỹ chuyên khoa nếu bé vẫn tiếp tục úp mặt xuống gối và không thể ngẩng đầu lên. Tập cho bé thêm bài \"Nằm sấp ngẩng đầu\"</p>',	2,	2,	'2018-12-02 20:30:50',	'2018-12-02 20:30:50'),
+(7,	NULL,	0,	'Người lớn đỡ nách, bé có thể đứng trên tấm ván dậm dậm chân',	'Bé chưa bước đi khi người lớn đỡ nách cho bé dẫm chân lên tấm ván. Bạn cần thực hiện lại hoạt động vào các lần khác. Tham khảo hoạt động trong bài \"Phản xạ bước đi\" và hỏi tư vấn thêm bác sỹ nến vấn đề vẫn tiếp tục xảy ra.',	'<p>Bé chưa bước đi khi người lớn đỡ nách cho bé dẫm chân lên tấm ván. Bạn cần thực hiện lại hoạt động vào các lần khác. Tham khảo hoạt động trong bài \"Phản xạ bước đi\" và hỏi tư vấn thêm bác sỹ nến vấn đề vẫn tiếp tục xảy ra.</p>',	2,	2,	'2018-12-02 20:34:13',	'2018-12-02 20:34:13'),
+(8,	NULL,	0,	'Đặt bé nằm sấp. Người lớn dùng tay giữ hai bên sườn của bé và nhấc bé lên song song với mặt sàn hoặc mặt giường.',	'Bé chưa thể giữ thẳng được đầu và chân trên một đường thẳng khi được nhấc lên song song với mặt sàn. Bạn cần tập thêm cho bé các bài tập \"Nằm sấp ngẩng đầu\", \"lắc lư bé\"',	'<p>Bé chưa thể giữ thẳng được đầu và chân trên một đường thẳng khi được nhấc lên song song với mặt sàn. Bạn cần tập thêm cho bé các bài tập \"Nằm sấp ngẩng đầu\", \"lắc lư bé\"&nbsp;&nbsp;&nbsp;</p>',	2,	2,	'2018-12-02 20:35:00',	'2018-12-02 20:35:00'),
+(9,	NULL,	0,	'Khi đặt bé nằm ngửa, vị trí của tay bé',	'Bình thường hai tay bé phải đủ mạnh để chiến thắng trọng lực và giơ lên vung vẩy ở hai bên hoặc đưa ra trước ngực được. Nếu  hai tay bé thường xuyên duỗi thẳng không cử động thì cần tư vấn thêm ý kiến của bác sỹ chuyên khoa.',	'<p>Bình thường hai tay bé phải đủ mạnh để chiến thắng trọng lực và giơ lên vung vẩy ở hai bên hoặc đưa ra trước ngực được. Nếu&nbsp;hai tay bé thường xuyên duỗi thẳng không cử động thì cần tư vấn thêm ý kiến của bác sỹ chuyên khoa.</p>',	3,	2,	'2018-12-02 20:37:08',	'2018-12-02 20:37:08'),
+(10,	NULL,	0,	'Đặt một vật vào tay bé',	'Bạn có thể tư vấn thêm bác sỹ chuyên khoa về khả năng sử dụng tay của bé. Tập thêm cho bé các bài tập: \"cho bé túm vải\", \"bài tập thả tay\", \"nắm chặt và xòe ra\"',	'<p>Bạn có thể tư vấn thêm bác sỹ chuyên khoa về khả năng sử dụng tay của bé. Tập thêm cho bé các bài tập: \"cho bé túm vải\", \"bài tập thả tay\", \"nắm chặt và xòe ra\"&nbsp;&nbsp;</p>',	3,	2,	'2018-12-02 20:37:57',	'2018-12-02 20:37:57'),
+(11,	NULL,	0,	'Người lớn bắt chước tiếng khóc của bé khi bé đang khóc',	'Bạn nên tích cực tương tác và nói chuyện với bé thường xuyên hơn, đáp ứng các nhu cầu của bé khi bé khóc. Tham khảo thêm các bài: \"Nói chuyện với bé\", \"Chuyển hướng tiếng khóc\"',	'<p>Bạn nên tích cực tương tác và nói chuyện với bé thường xuyên hơn, đáp ứng các nhu cầu của bé khi bé khóc. Tham khảo thêm các bài: \"Nói chuyện với bé\", \"Chuyển hướng tiếng khóc\"&nbsp;&nbsp;</p>',	1,	2,	'2018-12-02 20:39:34',	'2018-12-02 20:39:34'),
+(12,	NULL,	0,	'Người lớn nói chuyện cùng bé',	'Bé vẫn chưa tương tác ngược lại với người lớn khi được nói chuyện với. Trong một vài tuần tới, kỹ năng này cần phải được xuất hiện. Bạn nên thường xuyên tương tác với bé. Tập thêm cho bé các bài: \"Nói chuyện với bé\", \"gọi tên bé\"',	'<p>Bé vẫn chưa tương tác ngược lại với người lớn khi được nói chuyện với. Trong một vài tuần tới, kỹ năng này cần phải được xuất hiện. Bạn nên thường xuyên tương tác với bé. Tập thêm cho bé các bài: \"Nói chuyện với bé\", \"gọi tên bé\"&nbsp;&nbsp;</p>',	1,	2,	'2018-12-02 20:42:09',	'2018-12-02 20:42:09'),
+(13,	NULL,	0,	'Người lớn đùa với bé, bé mỉm cười lại lúc:',	'Khả năng cười của bé chưa xuất hiện. Bạn nên tích cực giao lưu tình cảm và nói chuyện với bé thường xuyên hơn. Có thể cho bé thực hiện nhiều hoạt động \"Bé cười\"',	'<p>Khả năng cười của bé chưa xuất hiện. Bạn nên tích cực giao lưu tình cảm và nói chuyện với bé thường xuyên hơn. Có thể cho bé thực hiện nhiều hoạt động \"Bé cười\"&nbsp;&nbsp;</p>',	5,	2,	'2018-12-02 20:43:46',	'2018-12-02 20:43:46'),
+(14,	NULL,	0,	'Người lớn há miệng, lè lưỡi hoặc làm một điệu bộ nào đó trên mặt ở khoảng cách 15cm với mặt bé trong vòng 10 giây',	'Bé khó chịu, bứt rứt khi người lớn thay đổi các nét mặt cho bé nhìn. Bạn hãy thử lại hoạt động này cho bé vào lúc khác. Có thể bé chưa chịu được quá nhiều các kích thích vào lúc này',	'<p>Bé khó chịu, bứt rứt khi người lớn thay đổi các nét mặt cho bé nhìn. Bạn hãy thử lại hoạt động này cho bé vào lúc khác. Có thể bé chưa chịu được quá nhiều các kích thích vào lúc này</p>',	5,	2,	'2018-12-02 20:44:59',	'2018-12-02 20:44:59'),
+(15,	NULL,	0,	'Thi thoảng, bé có phát ra một số âm thanh sâu từ trong cổ họng không?',	'undefined',	NULL,	1,	1,	'2018-12-02 21:15:15',	'2018-12-02 21:15:15'),
+(16,	NULL,	0,	'Bé có phát ra những âm thanh như “o” “a” “ga” khi vui vẻ không?',	'undefined',	NULL,	1,	1,	'2018-12-02 21:16:50',	'2018-12-02 21:16:50'),
+(17,	NULL,	0,	'Khi bạn nói chuyện với bé, bé có phát ra âm để đáp trả không?',	'undefined',	NULL,	1,	1,	'2018-12-02 21:17:07',	'2018-12-02 21:17:07'),
+(18,	NULL,	0,	'Bé có mỉm cười khi bạn nói chuyện với bé không?',	'undefined',	NULL,	1,	1,	'2018-12-02 21:17:22',	'2018-12-02 21:17:22'),
+(19,	NULL,	0,	'Bé đã cười thành tiếng được một chút chưa?',	'undefined',	NULL,	1,	1,	'2018-12-02 21:17:34',	'2018-12-02 21:17:34'),
+(20,	NULL,	0,	'Bé có cười và tỏ ra vui mừng khi bạn khuất bóng và xuất hiện lại không?',	'undefined',	NULL,	1,	1,	'2018-12-02 21:18:01',	'2018-12-02 21:18:01'),
+(21,	NULL,	0,	'Khi nằm ngửa, bé có ngọ nguậy chân tay qua lại không?',	'undefined',	NULL,	2,	1,	'2018-12-02 21:18:46',	'2018-12-02 21:18:46'),
+(22,	NULL,	0,	'Khi bé nằm sấp, bé có quay đầu được từ bên này sang bên kia không?',	'undefined',	NULL,	2,	1,	'2018-12-02 21:19:02',	'2018-12-02 21:19:02'),
+(23,	NULL,	0,	'Khi bé nằm sấp, bé có giữ được đầu ngẩng trong vài giây không?',	'undefined',	NULL,	2,	1,	'2018-12-02 21:19:16',	'2018-12-02 21:19:16'),
+(24,	NULL,	0,	'Đặt bé nằm ngửa, bé có đạp cả hai chân không?',	'undefined',	NULL,	2,	1,	'2018-12-02 21:19:30',	'2018-12-02 21:19:30'),
+(25,	NULL,	0,	'Khi bé nằm sấp, bé có quay đầu được từ bên này sang bên kia không?',	'undefined',	NULL,	2,	1,	'2018-12-02 21:19:41',	'2018-12-02 21:19:41'),
+(26,	NULL,	0,	'Đặt bé nằm sấp, sau khi bé ngẩng đầu lên, bé có từ từ hạ đầu xuống không hay để đầu bị gục xuống?',	'undefined',	NULL,	2,	1,	'2018-12-02 21:19:55',	'2018-12-02 21:19:55'),
+(27,	NULL,	0,	'Tay của bé có thường xuyên nắm chặt khi bé thức không? (Nếu bé đã từng nắm chặt tay nhưng giờ không còn nắm nữa thì cũng đánh dấu vào cột “Có”)',	'undefined',	NULL,	3,	1,	'2018-12-02 21:20:18',	'2018-12-02 21:20:18'),
+(28,	NULL,	0,	'Bạn đặt ngón tay vào lòng bàn tay bé, bé có nắm lại không?',	'undefined',	NULL,	3,	1,	'2018-12-02 21:20:48',	'2018-12-02 21:20:48'),
+(29,	NULL,	0,	'Khi đặt một đồ chơi vào tay bé, bé có nắm giữ được một lúc không?',	'undefined',	NULL,	3,	1,	'2018-12-02 21:21:03',	'2018-12-02 21:21:03'),
+(30,	NULL,	0,	'Bé có chạm tay lên mặt mình không?',	'undefined',	NULL,	3,	1,	'2018-12-02 21:21:24',	'2018-12-02 21:21:24'),
+(31,	NULL,	4,	'Khi thức, các ngón tay của bé có mở ra toàn bộ hoặc một phần không? (khác so với lúc mới sinh bàn tay luôn nắm chặt)',	'undefined',	NULL,	3,	1,	'2018-12-02 21:22:34',	'2018-12-02 21:22:34'),
+(32,	NULL,	4,	'Bé có túm hoặc cào vào quần áo của mình không?',	'undefined',	NULL,	3,	1,	'2018-12-02 21:22:50',	'2018-12-02 21:22:50'),
+(33,	NULL,	0,	'Bé có nhìn vào đồ vật ở khoảng cách 20-25cm không?',	'undefined',	NULL,	4,	1,	'2018-12-02 21:23:17',	'2018-12-02 21:23:17'),
+(34,	NULL,	1,	'Khi bạn di chuyển, bé có nhìn theo bạn không?',	'undefined',	NULL,	4,	1,	'2018-12-02 21:24:46',	'2018-12-02 21:24:46'),
+(35,	NULL,	1,	'Khi bạn di chuyển từ từ một đồ chơi trước mặt bé (ở khoảng cách khoảng 25cm), bé có nhìn theo đồ chơi và đôi khi xoay cả đầu để nhìn theo không?',	'undefined',	NULL,	4,	1,	'2018-12-02 21:24:58',	'2018-12-02 21:24:58'),
+(36,	NULL,	1,	'Khi bạn di chuyển từ từ một đồ chơi nhỏ lên và xuống trước mặt bé (ở khoảng cách 25 cm) bé có nhìn theo đồ chơi không?',	'undefined',	NULL,	4,	1,	'2018-12-02 21:25:11',	'2018-12-02 21:25:11'),
+(37,	NULL,	1,	'Khi bạn giữ bé ở tư thế ngồi, bé có nhìn vào đồ chơi (kích thước bằng cái chén hoặc xúc xắc) bạn đặt trên bàn hoặc dưới sàn trước mặt bé không?',	'undefined',	NULL,	4,	1,	'2018-12-02 21:25:36',	'2018-12-02 21:25:36'),
+(38,	NULL,	1,	'Bạn lắc một đồ chơi trước mặt bé khi bé đang nằm ngửa, bé có giơ tay với về phía đồ chơi không?',	'undefined',	NULL,	4,	1,	'2018-12-02 21:25:50',	'2018-12-02 21:25:50'),
+(39,	NULL,	0,	'Thi thoảng bé có bú mút không kể cả khi không được cho ăn?',	'undefined',	NULL,	5,	1,	'2018-12-02 21:27:22',	'2018-12-02 21:27:22'),
+(40,	NULL,	0,	'Bé có khóc khi đói, ướt, mệt hoặc khi muốn được bế không?',	'undefined',	NULL,	5,	1,	'2018-12-02 21:27:34',	'2018-12-02 21:27:34'),
+(41,	NULL,	0,	'Bé có mỉm cười với bạn không?',	'undefined',	NULL,	5,	1,	'2018-12-02 21:28:09',	'2018-12-02 21:28:09'),
+(42,	NULL,	0,	'Khi bạn cười với bé, bé có cười đáp lại không?',	'undefined',	NULL,	5,	1,	'2018-12-02 21:28:25',	'2018-12-02 21:28:25'),
+(43,	NULL,	0,	'Bé có chú ý nhìn tay mình không?',	'undefined',	NULL,	5,	1,	'2018-12-02 21:28:36',	'2018-12-02 21:28:36'),
+(44,	NULL,	0,	'Khi bé thấy ti mẹ hoặc bình sữa, bé có tỏ ra biết mình sắp sửa được cho ăn không?',	'undefined',	NULL,	5,	1,	'2018-12-02 21:28:47',	'2018-12-02 21:28:47');
+
+DROP TABLE IF EXISTS `test_evaluates`;
+CREATE TABLE `test_evaluates` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `level_id` int(11) NOT NULL,
+  `part_id` int(11) NOT NULL,
+  `min_score` int(11) NOT NULL DEFAULT '0',
+  `max_score` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `test_evaluates` (`id`, `content`, `level_id`, `part_id`, `min_score`, `max_score`, `created_at`, `updated_at`) VALUES
+(10,	'Bé có sự phát triển tốt',	2,	1,	18,	22,	'2018-12-02 20:57:57',	'2018-12-02 20:57:57'),
+(11,	'Bé có sự phát triển bình thường',	2,	1,	15,	17,	'2018-12-02 20:58:37',	'2018-12-02 20:58:37'),
+(12,	'Cần cung cấp thêm cho bé các hoạt động về nhận thức và theo dõi thêm để sàng lọc vấn đề.',	2,	1,	0,	14,	'2018-12-02 20:59:01',	'2018-12-02 20:59:01'),
+(13,	'Bé có sự phát triển tốt',	2,	2,	26,	32,	'2018-12-02 20:59:38',	'2018-12-02 20:59:38'),
+(14,	'Bé có sự phát triển bình thường',	2,	2,	13,	25,	'2018-12-02 20:59:55',	'2018-12-02 20:59:55'),
+(15,	'Cần cung cấp thêm cho bé các hoạt động về nhận thức và theo dõi thêm để sàng lọc vấn đề.',	2,	2,	0,	12,	'2018-12-02 21:00:10',	'2018-12-02 21:00:10'),
+(16,	'Bé có sự phát triển tốt',	2,	4,	35,	47,	'2018-12-02 21:00:40',	'2018-12-02 21:00:40'),
+(17,	'Bé có sự phát triển bình thường',	2,	4,	25,	34,	'2018-12-02 21:00:59',	'2018-12-02 21:00:59'),
+(18,	'Cần cung cấp thêm cho bé các hoạt động về nhận thức và theo dõi thêm để sàng lọc vấn đề.',	2,	4,	0,	24,	'2018-12-02 21:01:21',	'2018-12-02 21:01:21'),
+(19,	'Bé có sự phát triển tốt',	2,	3,	14,	20,	'2018-12-02 21:03:20',	'2018-12-02 21:03:20'),
+(20,	'Bé có sự phát triển bình thường',	2,	3,	8,	13,	'2018-12-02 21:03:38',	'2018-12-02 21:03:38'),
+(21,	'Cần cung cấp thêm cho bé các hoạt động về nhận thức và theo dõi thêm để sàng lọc vấn đề.',	2,	3,	0,	8,	'2018-12-02 21:04:05',	'2018-12-02 21:04:05'),
+(22,	'Cần cung cấp thêm cho bé các hoạt động về nhận thức và theo dõi thêm để sàng lọc vấn đề.',	2,	3,	0,	7,	'2018-12-02 21:04:11',	'2018-12-02 21:04:11'),
+(23,	'Bé có sự phát triển tốt',	2,	5,	18,	24,	'2018-12-02 21:04:51',	'2018-12-02 21:04:51'),
+(24,	'Bé có sự phát triển bình thường',	2,	5,	12,	17,	'2018-12-02 21:05:05',	'2018-12-02 21:05:05'),
+(25,	'Cần cung cấp thêm cho bé các hoạt động về nhận thức và theo dõi thêm để sàng lọc vấn đề.',	2,	5,	0,	11,	'2018-12-02 21:05:33',	'2018-12-02 21:05:33'),
+(36,	'Cha mẹ cần cho con thêm các hoạt động và quan sát con thêm',	1,	1,	25,	34,	'2018-12-02 21:35:41',	'2018-12-02 21:35:41'),
+(37,	'Cần phải đánh giá thêm và tư vấn của bác sĩ chuyên khoa',	1,	1,	0,	25,	'2018-12-02 21:35:53',	'2018-12-02 21:35:53'),
+(39,	'Bé có sự phát triển theo đúng độ tuổi',	1,	1,	35,	60,	'2018-12-02 21:36:22',	'2018-12-02 21:36:22'),
+(40,	'Cha mẹ cần cho con thêm các hoạt động và quan sát con thêm',	1,	2,	25,	34,	'2018-12-03 04:43:45',	'2018-12-03 04:43:45'),
+(41,	'Cần phải đánh giá thêm và tư vấn của bác sĩ chuyên khoa',	1,	2,	0,	25,	'2018-12-03 04:43:49',	'2018-12-03 04:43:49'),
+(42,	'Bé có sự phát triển theo đúng độ tuổi',	1,	2,	35,	60,	'2018-12-03 04:43:53',	'2018-12-03 04:43:53'),
+(43,	'Cha mẹ cần cho con thêm các hoạt động và quan sát con thêm',	1,	3,	25,	34,	'2018-12-03 04:44:08',	'2018-12-03 04:44:08'),
+(44,	'Cần phải đánh giá thêm và tư vấn của bác sĩ chuyên khoa',	1,	3,	0,	25,	'2018-12-03 04:44:13',	'2018-12-03 04:44:13'),
+(45,	'Bé có sự phát triển theo đúng độ tuổi',	1,	3,	35,	60,	'2018-12-03 04:44:18',	'2018-12-03 04:44:18'),
+(46,	'Cha mẹ cần cho con thêm các hoạt động và quan sát con thêm',	1,	4,	25,	34,	'2018-12-03 04:44:29',	'2018-12-03 04:44:29'),
+(47,	'Cần phải đánh giá thêm và tư vấn của bác sĩ chuyên khoa',	1,	4,	0,	25,	'2018-12-03 04:44:32',	'2018-12-03 04:44:32'),
+(48,	'Bé có sự phát triển theo đúng độ tuổi',	1,	4,	35,	60,	'2018-12-03 04:44:35',	'2018-12-03 04:44:35'),
+(49,	'Cha mẹ cần cho con thêm các hoạt động và quan sát con thêm',	1,	5,	25,	34,	'2018-12-03 04:44:46',	'2018-12-03 04:44:46'),
+(50,	'Cần phải đánh giá thêm và tư vấn của bác sĩ chuyên khoa',	1,	5,	0,	25,	'2018-12-03 04:44:50',	'2018-12-03 04:44:50'),
+(51,	'Bé có sự phát triển theo đúng độ tuổi',	1,	5,	35,	60,	'2018-12-03 04:44:53',	'2018-12-03 04:44:53');
+
+DROP TABLE IF EXISTS `test_results`;
+CREATE TABLE `test_results` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `total_scores` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `kid_id` int(10) unsigned NOT NULL,
+  `level_id` int(11) NOT NULL,
+  `part_id` int(11) NOT NULL,
+  `test_evaluate_id` int(11) NOT NULL,
+  `comments` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `birthday` date DEFAULT NULL,
+  `is_admin` int(11) NOT NULL DEFAULT '0',
+  `is_advance_user` int(11) NOT NULL DEFAULT '0',
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `avatar` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `default_kid_id` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `birthday`, `is_admin`, `is_advance_user`, `remember_token`, `created_at`, `updated_at`, `phone`, `address`, `avatar`, `default_kid_id`) VALUES
+(1,	'Admin',	'admin@gmail.com',	'$2y$10$HyksuA2MdPxHpDyLedQnM.lKD76261hPIDPkErSv0LxhfdX3v8Uti',	NULL,	1,	0,	'NrMXxoLdCYyvPFGoQVpV5VhESjvRB4XoA6Phdj08yQVFKCP1p05LWJVNMMv1',	'2018-10-06 20:24:48',	'2018-10-06 20:24:48',	'',	'',	'',	0),
+(4,	'Client Advance',	'client@gmail.com',	'$2y$10$HyksuA2MdPxHpDyLedQnM.lKD76261hPIDPkErSv0LxhfdX3v8Uti',	'2018-10-02',	0,	1,	'NrMXxoLdCYyvPFGoQVpV5VhESjvRB4XoA6Phdj08yQVFKCP1p05LWJVNMMv1',	'2018-12-03 05:04:53',	'2018-12-03 05:04:53',	'0976373594',	'Ha noi hhgj',	'/images/user/1542607915',	26),
+(6,	'Client Basic',	'admin1@gmail.com',	'$2y$10$HyksuA2MdPxHpDyLedQnM.lKD76261hPIDPkErSv0LxhfdX3v8Uti',	'2018-10-02',	1,	0,	'NrMXxoLdCYyvPFGoQVpV5VhESjvRB4XoA6Phdj08yQVFKCP1p05LWJVNMMv1',	'2018-12-03 05:04:38',	'2018-12-03 05:04:38',	'',	'',	'',	0),
+(7,	'Admin 2',	'admin2@gmail.com',	'$2y$10$HyksuA2MdPxHpDyLedQnM.lKD76261hPIDPkErSv0LxhfdX3v8Uti',	NULL,	1,	0,	'NrMXxoLdCYyvPFGoQVpV5VhESjvRB4XoA6Phdj08yQVFKCP1p05LWJVNMMv1',	'2018-10-06 20:24:48',	'2018-10-06 20:24:48',	'',	'',	'',	0),
+(8,	'Admin 3',	'admin3@gmail.com',	'$2y$10$HyksuA2MdPxHpDyLedQnM.lKD76261hPIDPkErSv0LxhfdX3v8Uti',	NULL,	1,	0,	'NrMXxoLdCYyvPFGoQVpV5VhESjvRB4XoA6Phdj08yQVFKCP1p05LWJVNMMv1',	'2018-10-06 20:24:48',	'2018-10-06 20:24:48',	'',	'',	'',	0);
+
+-- 2018-12-03 05:05:49
